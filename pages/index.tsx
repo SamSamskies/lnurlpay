@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Center px={8} py={24}>
+      <Center px={4} py={24}>
         <Box>
           <Stack spacing={2}>
             <Heading as="h1" size="2xl">
