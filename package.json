@@ -8,6 +8,13 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "keywords": [
+    "lnurl",
+    "lightning address",
+    "lightning",
+    "lnurl-pay"
+  ],
+  "author": "Sam Samskies <samsamskies@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "next": "12.1.5",
