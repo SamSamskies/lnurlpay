@@ -12,7 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       props: { lnUrlOrAddressParams },
     };
   } catch (error) {
-    if (error instanceof Error) return { props: { error: error.message } };
+    return { props: { error: error instanceof Error ? error.message : "" } };
   }
 };
 
