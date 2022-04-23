@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Input, HStack, IconButton } from "@chakra-ui/react";
-import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { Input, HStack } from "@chakra-ui/react";
 import { useState } from "react";
+import NextButton from "components/NextButton";
 
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -23,14 +23,7 @@ const Home: NextPage = () => {
           placeholder="Enter LNURL or lightning address"
           size="lg"
         />
-        <IconButton
-          aria-label="Next"
-          colorScheme="yellow"
-          size="lg"
-          type="submit"
-          icon={<ArrowForwardIcon />}
-          isLoading={isLoading}
-        />
+        <NextButton isLoading={isLoading} />
       </HStack>
     </form>
   );
