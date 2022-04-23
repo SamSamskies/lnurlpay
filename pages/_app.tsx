@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Center px={4} py={24}>
-        <Box maxW={600}>
+        <Box w={600} maxW={600}>
           <Stack spacing={2}>
             <Heading as="h1" size="2xl">
               LNURL Pay ⚡️

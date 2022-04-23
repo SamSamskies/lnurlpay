@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next";
 import { requestPayServiceParams } from "lnurl-pay";
-import InvoicePage from "components/InvoicePage";
+import AmountPage from "components/AmountPage";
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
@@ -16,4 +16,4 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   }
 };
 
-export default InvoicePage;
+export default AmountPage;

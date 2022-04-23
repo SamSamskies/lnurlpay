@@ -1,17 +1,19 @@
 import type { NextPage } from "next";
-import type { LnUrlPayServiceResponse } from "lnurl-pay/dist/types/types";
-import { Alert, AlertIcon, AlertTitle, CloseButton } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  CloseButton,
+  Text,
+} from "@chakra-ui/react";
 import { useRouter } from "next/router";
 
 interface InvoicePageProps {
-  lnUrlOrAddressParams?: LnUrlPayServiceResponse;
+  invoice?: string;
   error?: string;
 }
 
-const InvoicePage: NextPage<InvoicePageProps> = ({
-  lnUrlOrAddressParams,
-  error,
-}) => {
+const AmountPage: NextPage<InvoicePageProps> = ({ invoice, error }) => {
   const router = useRouter();
 
   if (error) {
@@ -28,7 +30,8 @@ const InvoicePage: NextPage<InvoicePageProps> = ({
       </Alert>
     );
   }
-  return <pre>{JSON.stringify(lnUrlOrAddressParams, null, 2)}</pre>;
+
+  return <Text>{invoice}</Text>;
 };
 
-export default InvoicePage;
+export default AmountPage;
