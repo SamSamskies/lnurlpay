@@ -12,8 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
       props: { lnUrlOrAddressParams },
     };
   } catch (error) {
-    console.log(error);
-    return { notFound: true };
+    if (error instanceof Error) return { props: { error: error.message } };
   }
 };
 
