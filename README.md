@@ -1,4 +1,6 @@
-Coming soon...
+# LNURL Pay ⚡️
+
+Web app that generates BOLT11 invoices from an LNURL or Lightning Address.
 
 ## Getting Started
 
