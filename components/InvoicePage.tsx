@@ -4,9 +4,20 @@ import {
   AlertIcon,
   AlertTitle,
   CloseButton,
+  Box,
+  Flex,
   Text,
+  VStack,
+  HStack,
+  Button,
+  Image,
+  Link,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
+import { QRCodeSVG } from "qrcode.react";
+import copy from "copy-to-clipboard";
+import Header from "components/Header";
+import toast from "react-simple-toasts";
 
 interface InvoicePageProps {
   invoice?: string;
@@ -31,7 +42,44 @@ const AmountPage: NextPage<InvoicePageProps> = ({ invoice, error }) => {
     );
   }
 
-  return <Text>{invoice}</Text>;
+  return invoice ? (
+    <Flex flexDirection="column" alignItems="center">
+      <Header />
+      <Box
+        mt={6}
+        onClick={() => {
+          copy(invoice);
+          toast("⚡ invoice copied to clipboard");
+        }}
+        sx={{ cursor: "pointer" }}
+      >
+        <QRCodeSVG value={invoice} includeMargin size={256} />
+      </Box>
+      <Text fontSize="sm">Click QR code to copy invoice</Text>
+      <VStack justifyContent="flex-start" my={6} spacing={2}>
+        <Text>Alternatively, open in wallet:</Text>
+        <HStack spacing={2}>
+          <Link href={`lightning:${invoice}`} isExternal variant="button">
+            <Button>default ⚡</Button>
+          </Link>
+          ️<Text>or</Text>
+          <Link href={`strike:lightning:${invoice}`} variant="button">
+            <Button
+              leftIcon={
+                <Image
+                  src="/strike-logo.png"
+                  alt="Strike logo"
+                  boxSize="22px"
+                />
+              }
+            >
+              Strike
+            </Button>
+          </Link>
+        </HStack>
+      </VStack>
+    </Flex>
+  ) : null;
 };
 
 export default AmountPage;

@@ -15,6 +15,15 @@ const theme = extendTheme({
         },
       },
     },
+    Link: {
+      variants: {
+        button: {
+          _hover: {
+            textDecoration: "none",
+          },
+        },
+      },
+    },
   },
 });
 

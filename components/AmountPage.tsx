@@ -18,10 +18,12 @@ import {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
+  Flex,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import NextButton from "./NextButton";
 import { useState } from "react";
+import Header from "components/Header";
 
 interface AmountPageProps {
   lnUrlOrAddressParams?: LnUrlPayServiceResponse;
@@ -58,8 +60,9 @@ const AmountPage: NextPage<AmountPageProps> = ({
   }
 
   return (
-    <div>
-      <TableContainer mt={6}>
+    <Flex flexDirection="column" alignItems="center">
+      <Header />
+      <TableContainer mt={6} maxW="calc(100vw - 48px)">
         <Table variant="unstyled" size="sm" w={200}>
           <Tbody>
             <Tr>
@@ -88,7 +91,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
         </Table>
       </TableContainer>
       <form onSubmit={handleSubmit}>
-        <HStack alignItems="top" mt={6} spacing={2}>
+        <HStack alignItems="top" justifyContent="center" mt={6} spacing={2}>
           <InputGroup size="lg" flexBasis={200}>
             <NumberInput
               name="amount"
@@ -107,7 +110,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
           <NextButton isLoading={isLoading} />
         </HStack>
       </form>
-    </div>
+    </Flex>
   );
 };
 
