@@ -8,6 +8,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     const { invoice } = await requestInvoice({
       lnUrlOrAddress: query.lnUrlOrAddress as string,
       tokens: Number(query.amount) as Satoshis,
+      comment: query.comment as string,
     });
 
     return {

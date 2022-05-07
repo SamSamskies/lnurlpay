@@ -1,10 +1,17 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { Input, HStack, Text, Box, Heading } from "@chakra-ui/react";
+import {
+  Input,
+  HStack,
+  Text,
+  Box,
+  Heading,
+  IconButton,
+} from "@chakra-ui/react";
 import { useState } from "react";
-import NextButton from "components/NextButton";
 import { utils } from "lnurl-pay";
 import Header from "components/Header";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -54,7 +61,14 @@ const Home: NextPage = () => {
               </Text>
             )}
           </Box>
-          <NextButton isLoading={isLoading} />
+          <IconButton
+            colorScheme="yellow"
+            size="lg"
+            type="submit"
+            isLoading={isLoading}
+            icon={<ArrowForwardIcon />}
+            aria-label="Next"
+          />
         </HStack>
       </form>
     </div>

@@ -6,6 +6,7 @@ import {
   AlertTitle,
   CloseButton,
   HStack,
+  VStack,
   TableContainer,
   Table,
   Tbody,
@@ -19,9 +20,10 @@ import {
   NumberIncrementStepper,
   NumberDecrementStepper,
   Flex,
+  Button,
+  Textarea,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import NextButton from "./NextButton";
 import { useState } from "react";
 import Header from "components/Header";
 
@@ -37,11 +39,20 @@ const AmountPage: NextPage<AmountPageProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const lnUrlOrAddress = router.query.lnUrlOrAddress;
+  const areCommentsAllowed =
+    lnUrlOrAddressParams?.commentAllowed &&
+    lnUrlOrAddressParams?.commentAllowed > 0;
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const amount = e.currentTarget.amount.value;
+    const comment = e.currentTarget.comment?.value;
+    const url = comment
+      ? `/${lnUrlOrAddress}/${amount}?comment=${comment}`
+      : `/${lnUrlOrAddress}/${amount}`;
+
     setIsLoading(true);
-    router.push(`/${lnUrlOrAddress}/${e.currentTarget.amount.value}`);
+    router.push(url);
   };
 
   if (error) {
@@ -91,24 +102,42 @@ const AmountPage: NextPage<AmountPageProps> = ({
         </Table>
       </TableContainer>
       <form onSubmit={handleSubmit}>
-        <HStack alignItems="top" justifyContent="center" mt={6} spacing={2}>
-          <InputGroup size="lg" flexBasis={200}>
-            <NumberInput
-              name="amount"
-              defaultValue={lnUrlOrAddressParams?.min}
-              min={lnUrlOrAddressParams?.min}
-              max={lnUrlOrAddressParams?.max}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
-            <InputRightAddon>sats</InputRightAddon>
-          </InputGroup>
-          <NextButton isLoading={isLoading} />
-        </HStack>
+        <VStack spacing={4} width={280}>
+          <HStack alignItems="top" mt={6}>
+            <InputGroup size="lg">
+              <NumberInput
+                name="amount"
+                defaultValue={lnUrlOrAddressParams?.min}
+                min={lnUrlOrAddressParams?.min}
+                max={lnUrlOrAddressParams?.max}
+              >
+                <NumberInputField />
+                <NumberInputStepper>
+                  <NumberIncrementStepper />
+                  <NumberDecrementStepper />
+                </NumberInputStepper>
+              </NumberInput>
+              <InputRightAddon>sats</InputRightAddon>
+            </InputGroup>
+          </HStack>
+          {areCommentsAllowed && (
+            <Textarea
+              name="comment"
+              placeholder={`Optional message (max chars ${lnUrlOrAddressParams?.commentAllowed})`}
+              maxLength={lnUrlOrAddressParams?.commentAllowed}
+            />
+          )}
+          <Button
+            colorScheme="yellow"
+            size="lg"
+            type="submit"
+            isLoading={isLoading}
+            aria-label="Next"
+            w="100%"
+          >
+            Next
+          </Button>
+        </VStack>
       </form>
     </Flex>
   );
