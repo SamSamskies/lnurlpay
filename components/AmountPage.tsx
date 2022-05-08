@@ -7,11 +7,6 @@ import {
   CloseButton,
   HStack,
   VStack,
-  TableContainer,
-  Table,
-  Tbody,
-  Tr,
-  Td,
   InputGroup,
   InputRightAddon,
   NumberInput,
@@ -22,6 +17,10 @@ import {
   Flex,
   Button,
   Textarea,
+  Image,
+  Text,
+  Heading,
+  Box,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -54,6 +53,8 @@ const AmountPage: NextPage<AmountPageProps> = ({
     setIsLoading(true);
     router.push(url);
   };
+  const normalizeAmount = (amount?: number) =>
+    amount === 1 ? `${amount} sat` : `${amount} sats`;
 
   if (error) {
     return (
@@ -72,53 +73,42 @@ const AmountPage: NextPage<AmountPageProps> = ({
 
   return (
     <Flex flexDirection="column" alignItems="center">
-      <Header />
-      <TableContainer mt={6} maxW="calc(100vw - 48px)">
-        <Table variant="unstyled" size="sm" w={200}>
-          <Tbody>
-            <Tr>
-              <Td px={0}>Min amount:</Td>
-              <Td>
-                {lnUrlOrAddressParams?.min}{" "}
-                {lnUrlOrAddressParams?.min === 1 ? "sat" : "sats"}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td px={0}>Max amount:</Td>
-              <Td>
-                {lnUrlOrAddressParams?.max}{" "}
-                {lnUrlOrAddressParams?.max === 1 ? "sat" : "sats"}
-              </Td>
-            </Tr>
-            <Tr>
-              <Td px={0}>Domain:</Td>
-              <Td>{lnUrlOrAddressParams?.domain}</Td>
-            </Tr>
-            <Tr>
-              <Td px={0}>Description:</Td>
-              <Td>{lnUrlOrAddressParams?.description}</Td>
-            </Tr>
-          </Tbody>
-        </Table>
-      </TableContainer>
+      <Box mb={6}>
+        <Header />
+      </Box>
+      {lnUrlOrAddressParams?.image && (
+        <Image
+          src={lnUrlOrAddressParams?.image}
+          alt="user avatar"
+          maxH={150}
+          maxW={150}
+          mb={3}
+        />
+      )}
+      <Heading size="sm">{lnUrlOrAddressParams?.description}</Heading>
+      <Text fontSize="sm">{lnUrlOrAddressParams?.domain}</Text>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} width={280}>
           <HStack alignItems="top" mt={6}>
-            <InputGroup size="lg">
-              <NumberInput
-                name="amount"
-                defaultValue={lnUrlOrAddressParams?.min}
-                min={lnUrlOrAddressParams?.min}
-                max={lnUrlOrAddressParams?.max}
-              >
-                <NumberInputField />
-                <NumberInputStepper>
-                  <NumberIncrementStepper />
-                  <NumberDecrementStepper />
-                </NumberInputStepper>
-              </NumberInput>
-              <InputRightAddon>sats</InputRightAddon>
-            </InputGroup>
+            <label style={{ fontSize: 14, color: "#A0AEC0" }}>
+              Min {normalizeAmount(lnUrlOrAddressParams?.min)} / Max{" "}
+              {normalizeAmount(lnUrlOrAddressParams?.max)}
+              <InputGroup size="lg" mt={1}>
+                <NumberInput
+                  name="amount"
+                  defaultValue={lnUrlOrAddressParams?.min}
+                  min={lnUrlOrAddressParams?.min}
+                  max={lnUrlOrAddressParams?.max}
+                >
+                  <NumberInputField />
+                  <NumberInputStepper>
+                    <NumberIncrementStepper />
+                    <NumberDecrementStepper />
+                  </NumberInputStepper>
+                </NumberInput>
+                <InputRightAddon>sats</InputRightAddon>
+              </InputGroup>
+            </label>
           </HStack>
           {areCommentsAllowed && (
             <Textarea
