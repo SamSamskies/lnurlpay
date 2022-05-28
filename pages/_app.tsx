@@ -14,6 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="Convert an LNURL or Lightning Address to a BOLT11 invoice"
         />
         <link rel="icon" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
       </Head>
       <Center px={4} py={20}>
         <Box w={600} maxW={600}>
