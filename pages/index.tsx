@@ -102,7 +102,6 @@ const Home: NextPage = () => {
         <QrReader
           constraints={{ facingMode: "environment" }}
           onResult={handleScannedQrcode}
-          containerStyle={{ marginTop: -48 }}
         />
       )}
     </div>
