@@ -1018,6 +1018,27 @@
     "@typescript-eslint/types" "5.10.1"
     eslint-visitor-keys "^3.0.0"
 
+"@zxing/browser@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@zxing/browser/-/browser-0.0.7.tgz#5fa7680a867b660f48d3288fdf63e0174ad531c7"
+  integrity sha512-AepzMgDnD6EjxewqmXpHJsi4S3Gw9ilZJLIbTf6fWuWySEcHBodnGu3p7FWlgq1Sd5QyfPhTum5z3CBkkhMVng==
+  optionalDependencies:
+    "@zxing/text-encoding" "^0.9.0"
+
+"@zxing/library@^0.18.3":
+  version "0.18.6"
+  resolved "https://registry.yarnpkg.com/@zxing/library/-/library-0.18.6.tgz#717af8c6c1fd982865e21051afdd7b470ae6674c"
+  integrity sha512-bulZ9JHoLFd9W36pi+7e7DnEYNJhljYjZ1UTsKPOoLMU3qtC+REHITeCRNx40zTRJZx18W5TBRXt5pq2Uopjsw==
+  dependencies:
+    ts-custom-error "^3.0.0"
+  optionalDependencies:
+    "@zxing/text-encoding" "~0.9.0"
+
+"@zxing/text-encoding@^0.9.0", "@zxing/text-encoding@~0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@zxing/text-encoding/-/text-encoding-0.9.0.tgz#fb50ffabc6c7c66a0c96b4c03e3d9be74864b70b"
+  integrity sha512-U/4aVJ2mxI0aDNI8Uq0wEhMgY+u4CNtEb0om3+y3+niDAsoTCOB33UF0sxpzqzdqXLqmvc+vZyAt4O8pPdfkwA==
+
 acorn-jsx@^5.3.1:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"
@@ -2011,6 +2032,11 @@ fs.realpath@^1.0.0:
   resolved "https://registry.yarnpkg.com/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
   integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
 
+fsevents@~2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"
+  integrity sha512-xiqMQR4xAeHTuB9uWm+fFRcIOgKBMiOBP+eXiyT7jsgVCq1bkVygt00oASowB7EdtpOHaaPgKt812P9ab+DDKA==
+
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -2868,6 +2894,15 @@ react-is@^16.13.1, react-is@^16.7.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-qr-reader@^3.0.0-beta-1:
+  version "3.0.0-beta-1"
+  resolved "https://registry.yarnpkg.com/react-qr-reader/-/react-qr-reader-3.0.0-beta-1.tgz#e04a20876409313439959d8e0ea6df3ba6e36d68"
+  integrity sha512-5HeFH9x/BlziRYQYGK2AeWS9WiKYZtGGMs9DXy3bcySTX3C9UJL9EwcPnWw8vlf7JP4FcrAlr1SnZ5nsWLQGyw==
+  dependencies:
+    "@zxing/browser" "0.0.7"
+    "@zxing/library" "^0.18.3"
+    rollup "^2.67.2"
+
 react-remove-scroll-bar@^2.1.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-remove-scroll-bar/-/react-remove-scroll-bar-2.3.0.tgz#4f1c8442e4a8bbf98f0cd7ba30fdaf7bf5bcffe5"
@@ -2977,6 +3012,13 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rollup@^2.67.2:
+  version "2.75.1"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.75.1.tgz#9024223a8000f9ad936b8607c1bc7abcfcbdd1f1"
+  integrity sha512-zD73rq3Fanr/spmiybMqmGEvOpryj/heLqOb+lubxiXlo8azeJ/z306T2dJYuzfWZPQBS0OT++GXG6Lbd4ToKw==
+  optionalDependencies:
+    fsevents "~2.3.2"
 
 run-parallel@^1.1.9:
   version "1.2.0"
@@ -3197,6 +3239,11 @@ toggle-selection@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/toggle-selection/-/toggle-selection-1.0.6.tgz#6e45b1263f2017fa0acc7d89d78b15b8bf77da32"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
+
+ts-custom-error@^3.0.0:
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/ts-custom-error/-/ts-custom-error-3.2.0.tgz#ff8f80a3812bab9dc448536312da52dce1b720fb"
+  integrity sha512-cBvC2QjtvJ9JfWLvstVnI45Y46Y5dMxIaG1TDMGAD/R87hpvqFL+7LhvUDhnRCfOnx/xitollFWWvUKKKhbN0A==
 
 tsconfig-paths@^3.11.0, tsconfig-paths@^3.9.0:
   version "3.14.1"
