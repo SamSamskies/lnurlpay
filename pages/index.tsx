@@ -102,6 +102,7 @@ const Home: NextPage = () => {
         <QrReader
           constraints={{ facingMode: "environment" }}
           onResult={handleScannedQrcode}
+          videoContainerStyle={{ padding: "40%" }}
         />
       )}
     </div>
