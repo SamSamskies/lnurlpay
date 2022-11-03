@@ -24,7 +24,7 @@
     "axios": "^0.26.1",
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^6.3.1",
-    "lnurl-pay": "^0.2.3",
+    "lnurl-pay": "2.0.0",
     "next": "12.1.5",
     "qrcode.react": "^3.0.1",
     "react": "18.0.0",
