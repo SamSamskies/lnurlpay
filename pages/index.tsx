@@ -27,7 +27,7 @@ const Home: NextPage = () => {
   const { isLnurl, isLightningAddress } = utils;
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLnUrlOrAddress(e.currentTarget.lnUrlOrAddress.value);
+    setLnUrlOrAddress(e.currentTarget.lnUrlOrAddress.value.trim());
   };
   const handleScannedQrcode = (result: Result | null | undefined) => {
     if (result) {
@@ -73,6 +73,7 @@ const Home: NextPage = () => {
                     setIsInvalid(false);
                   }
                 }}
+                required
               />
               <InputRightElement h="100%" mr={2}>
                 <QrCodeButton
