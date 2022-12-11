@@ -73,6 +73,7 @@ const Home: NextPage = () => {
                     setIsInvalid(false);
                   }
                 }}
+                required
               />
               <InputRightElement h="100%" mr={2}>
                 <QrCodeButton
