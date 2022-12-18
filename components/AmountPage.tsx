@@ -39,23 +39,14 @@ const AmountPage: NextPage<AmountPageProps> = ({
   const router = useRouter();
   const lnUrlOrAddress = router.query.lnUrlOrAddress;
 
-  if (error) {
-    return (
-      <Alert mt={4} status="error">
-        <AlertIcon />
-        <AlertTitle mr={2}>{error}</AlertTitle>
-        <CloseButton
-          position="absolute"
-          right="8px"
-          top="8px"
-          onClick={() => router.push("/")}
-        />
-      </Alert>
-    );
-  }
-
   // TODO: Make a PR to fix the domain vaule bug in lnurl-pay using this logic
-  const domain = new URL(lnUrlOrAddressParams?.callback ?? "").hostname;
+  const getDomain = () => {
+    try {
+      return new URL(lnUrlOrAddressParams?.callback ?? "").hostname;
+    } catch (error) {
+      return "";
+    }
+  };
 
   const areCommentsAllowed =
     lnUrlOrAddressParams?.commentAllowed &&
@@ -75,6 +66,21 @@ const AmountPage: NextPage<AmountPageProps> = ({
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
 
+  if (error) {
+    return (
+      <Alert mt={4} status="error">
+        <AlertIcon />
+        <AlertTitle mr={2}>{error}</AlertTitle>
+        <CloseButton
+          position="absolute"
+          right="8px"
+          top="8px"
+          onClick={() => router.push("/")}
+        />
+      </Alert>
+    );
+  }
+
   return (
     <Flex flexDirection="column" alignItems="center">
       <Box mb={6}>
@@ -90,7 +96,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
         />
       )}
       <Heading size="sm">{lnUrlOrAddressParams?.description}</Heading>
-      <Text fontSize="sm">{domain}</Text>
+      <Text fontSize="sm">{getDomain()}</Text>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} width={280}>
           <HStack alignItems="top" mt={6}>
