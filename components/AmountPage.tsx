@@ -39,6 +39,21 @@ const AmountPage: NextPage<AmountPageProps> = ({
   const router = useRouter();
   const lnUrlOrAddress = router.query.lnUrlOrAddress;
 
+  if (error) {
+    return (
+      <Alert mt={4} status="error">
+        <AlertIcon />
+        <AlertTitle mr={2}>{error}</AlertTitle>
+        <CloseButton
+          position="absolute"
+          right="8px"
+          top="8px"
+          onClick={() => router.push("/")}
+        />
+      </Alert>
+    );
+  }
+
   // TODO: Make a PR to fix the domain vaule bug in lnurl-pay using this logic
   const domain = new URL(lnUrlOrAddressParams?.callback ?? "").hostname;
 
@@ -59,21 +74,6 @@ const AmountPage: NextPage<AmountPageProps> = ({
   };
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
-
-  if (error) {
-    return (
-      <Alert mt={4} status="error">
-        <AlertIcon />
-        <AlertTitle mr={2}>{error}</AlertTitle>
-        <CloseButton
-          position="absolute"
-          right="8px"
-          top="8px"
-          onClick={() => router.push("/")}
-        />
-      </Alert>
-    );
-  }
 
   return (
     <Flex flexDirection="column" alignItems="center">
