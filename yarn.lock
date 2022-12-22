@@ -2476,10 +2476,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-lnurl-pay@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/lnurl-pay/-/lnurl-pay-2.0.0.tgz#d64c40beca33e4ccccbcc49dff7201a342e0f5a7"
-  integrity sha512-wP8pOmDk3YvfB33rkT7nZ32UaZJyhlraKKfJmWk9Gb1wjzg7VXsq8sxpqphqX3uk7bA/YDDnsW18L19vDcMI6g==
+lnurl-pay@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/lnurl-pay/-/lnurl-pay-2.0.2.tgz#b32a23a74458ce38afa52f4b7285cd9d6fa43782"
+  integrity sha512-EzSiOvD35qSZqhdT+aP7o/sfHNQ238vsN6Sn29e7SyQk597MZ0A/y3NdgfcZgb7UCCHWz+YWTVxcJLyUD+ZgKw==
   dependencies:
     "@aws-crypto/sha256-js" "^2.0.2"
     aes-js "^3.1.2"
