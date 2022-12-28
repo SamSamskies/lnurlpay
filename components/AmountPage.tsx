@@ -54,15 +54,6 @@ const AmountPage: NextPage<AmountPageProps> = ({
     );
   }
 
-  // TODO: Make a PR to fix the domain vaule bug in lnurl-pay using this logic
-  const getDomain = () => {
-    try {
-      return new URL(lnUrlOrAddressParams?.callback ?? "").hostname;
-    } catch (error) {
-      return "";
-    }
-  };
-
   const areCommentsAllowed =
     lnUrlOrAddressParams?.commentAllowed &&
     lnUrlOrAddressParams?.commentAllowed > 0;
@@ -96,7 +87,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
         />
       )}
       <Heading size="sm">{lnUrlOrAddressParams?.description}</Heading>
-      <Text fontSize="sm">{getDomain()}</Text>
+      <Text fontSize="sm">{lnUrlOrAddressParams?.domain}</Text>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4} width={280}>
           <HStack alignItems="top" mt={6}>
