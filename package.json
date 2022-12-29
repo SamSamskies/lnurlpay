@@ -25,7 +25,7 @@
     "copy-to-clipboard": "^3.3.1",
     "framer-motion": "^6.3.1",
     "lnurl-pay": "2.1.0",
-    "next": "12.1.5",
+    "next": "13.1.1",
     "qrcode.react": "^3.0.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",
