@@ -1,6 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { requestInvoice } from "lnurl-pay";
-import type { Satoshis } from "lnurl-pay/dist/types/types";
+import { requestPayServiceParams } from "lnurl-pay";
 
 export default async function handler(
   req: NextApiRequest,
@@ -9,18 +8,15 @@ export default async function handler(
   switch (req.method) {
     case "GET":
       try {
-        const { invoice } = await requestInvoice({
+        const lnUrlOrAddressParams = await requestPayServiceParams({
           lnUrlOrAddress: req.query.lnUrlOrAddress as string,
-          tokens: Number(req.query.amount) as Satoshis,
-          comment: req.query.comment as string,
-          validateInvoice: true,
         });
 
-        res.status(200).json(invoice);
+        res.status(200).json(lnUrlOrAddressParams);
       } catch (error) {
         if (
           error instanceof Error &&
-          ["Invalid lnUrlOrAddress", "Invalid amount"].includes(error.message)
+          error.message === "Invalid lnUrlOrAddress"
         ) {
           res.status(400).end(error.message);
         } else {
