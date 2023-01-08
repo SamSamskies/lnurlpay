@@ -16,7 +16,7 @@ export default async function handler(
           validateInvoice: true,
         });
 
-        res.status(200).json(invoice);
+        res.status(200).end(invoice);
       } catch (error) {
         if (
           error instanceof Error &&
