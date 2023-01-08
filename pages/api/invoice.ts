@@ -7,18 +7,18 @@ export default async function handler(
   res: NextApiResponse
 ) {
   switch (req.method) {
-    case "POST":
+    case "GET":
       const { invoice } = await requestInvoice({
-        lnUrlOrAddress: req.body.lnUrlOrAddress as string,
-        tokens: Number(req.body.amount) as Satoshis,
-        comment: req.body.comment as string,
+        lnUrlOrAddress: req.query.lnUrlOrAddress as string,
+        tokens: Number(req.query.amount) as Satoshis,
+        comment: req.query.comment as string,
         validateInvoice: true,
       });
 
       res.status(200).json(invoice);
       break;
     default:
-      res.setHeader("Allow", ["POST"]);
+      res.setHeader("Allow", ["GET"]);
       res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
