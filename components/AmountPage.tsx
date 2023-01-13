@@ -72,7 +72,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
   };
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
-  const ogContent = `/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
+  const ogContent = `https://lnurlpay-git-add-open-graph-tags-samsamskies.vercel.app/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
 
   return (
     <>
