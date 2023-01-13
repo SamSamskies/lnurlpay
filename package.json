@@ -26,6 +26,7 @@
     "framer-motion": "^6.3.1",
     "lnurl-pay": "2.1.0",
     "next": "13.1.1",
+    "node-html-to-image": "^3.2.4",
     "qrcode.react": "^3.0.1",
     "react": "18.0.0",
     "react-dom": "18.0.0",

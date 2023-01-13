@@ -17,6 +17,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import QrCodeButton from "components/QrCodeButton";
 import { QrReader } from "react-qr-reader";
 import { Result } from "@zxing/library";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,8 +52,14 @@ const Home: NextPage = () => {
     router.push(`/${lnUrlOrAddress}`);
   }, [lnUrlOrAddress, isLnurl, isLightningAddress, router]);
 
+  const ogContent = "/thereisno2ndbest.jpg";
+
   return (
-    <div>
+    <>
+      <Head>
+        <meta property="og:image" content={ogContent} />
+        <meta name="twitter:image" content={ogContent} />
+      </Head>
       <Header />
       <Heading mt={2} size="md" color="gray.300">
         Convert an LNURL or Lightning Address to a BOLT11 invoice.
@@ -106,7 +113,7 @@ const Home: NextPage = () => {
           containerStyle={{ marginTop: -48 }}
         />
       )}
-    </div>
+    </>
   );
 };
 
