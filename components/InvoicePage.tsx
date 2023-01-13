@@ -59,6 +59,7 @@ const AmountPage: NextPage<InvoicePageProps> = ({
       <Head>
         <meta property="og:image" content={ogContent} />
         <meta name="twitter:image" content={ogContent} />
+        <link rel="canonical" href={`${baseUrl}/${lnUrlOrAddress}/${amount}`} />
       </Head>
       <Flex flexDirection="column" alignItems="center">
         <Header />
