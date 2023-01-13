@@ -45,7 +45,7 @@ export default function handler(req: NextRequest) {
           {amount && (
             <div
               style={{
-                fontSize: 24,
+                fontSize: 36,
                 marginTop: 24,
               }}
             >
