@@ -54,6 +54,7 @@ const Home: NextPage = () => {
   }, [lnUrlOrAddress, isLnurl, isLightningAddress, router]);
 
   const ogContent = `${BASE_URL}/thereisno2ndbest.jpg`;
+  console.log("index", process.env.VERCEL_URL);
 
   return (
     <>
