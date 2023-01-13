@@ -81,7 +81,6 @@ const AmountPage: NextPage<AmountPageProps> = ({
       <Head>
         <meta property="og:image" content={ogContent} />
         <meta name="twitter:image" content={ogContent} />
-        <link rel="canonical" href={`${baseUrl}/${lnUrlOrAddress}`} />
       </Head>
       <Flex flexDirection="column" alignItems="center">
         <Box mb={6}>
