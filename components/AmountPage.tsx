@@ -26,6 +26,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "components/Header";
 import Head from "next/head";
+import { BASE_URL } from "../constants";
 
 interface AmountPageProps {
   lnUrlOrAddressParams?: LnUrlPayServiceResponse;
@@ -72,7 +73,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
   };
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
-  const ogContent = `https://lnurlpay-git-add-open-graph-tags-samsamskies.vercel.app/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
+  const ogContent = `${BASE_URL}/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
 
   return (
     <>

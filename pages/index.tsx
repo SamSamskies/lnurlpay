@@ -18,6 +18,7 @@ import QrCodeButton from "components/QrCodeButton";
 import { QrReader } from "react-qr-reader";
 import { Result } from "@zxing/library";
 import Head from "next/head";
+import { BASE_URL } from "../constants";
 
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -52,7 +53,7 @@ const Home: NextPage = () => {
     router.push(`/${lnUrlOrAddress}`);
   }, [lnUrlOrAddress, isLnurl, isLightningAddress, router]);
 
-  const ogContent = "/thereisno2ndbest.jpg";
+  const ogContent = `${BASE_URL}/thereisno2ndbest.jpg`;
 
   return (
     <>

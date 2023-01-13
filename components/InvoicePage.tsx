@@ -19,6 +19,7 @@ import copy from "copy-to-clipboard";
 import Header from "components/Header";
 import toast from "react-simple-toasts";
 import Head from "next/head";
+import { BASE_URL } from "../constants";
 
 interface InvoicePageProps {
   invoice?: string;
@@ -50,7 +51,7 @@ const AmountPage: NextPage<InvoicePageProps> = ({
     );
   }
 
-  const ogContent = `/api/og?lnUrlOrAddress=${lnUrlOrAddress}&amount=${amount}`;
+  const ogContent = `${BASE_URL}/api/og?lnUrlOrAddress=${lnUrlOrAddress}&amount=${amount}`;
 
   return invoice ? (
     <>
