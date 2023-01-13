@@ -13,7 +13,11 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     });
 
     return {
-      props: { invoice },
+      props: {
+        invoice,
+        lnUrlOrAddress: query.lnUrlOrAddress,
+        amount: query.amount,
+      },
     };
   } catch (error) {
     return { props: { error: error instanceof Error ? error.message : "" } };
