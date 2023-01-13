@@ -26,7 +26,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Header from "components/Header";
 import Head from "next/head";
-import { BASE_URL } from "../constants";
+import { useGetBaseUrl } from "hooks";
 
 interface AmountPageProps {
   lnUrlOrAddressParams?: LnUrlPayServiceResponse;
@@ -40,6 +40,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const lnUrlOrAddress = router.query.lnUrlOrAddress;
+  const baseUrl = useGetBaseUrl();
 
   if (error) {
     return (
@@ -73,7 +74,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
   };
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
-  const ogContent = `${BASE_URL}/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
+  const ogContent = `${baseUrl}/api/og?lnUrlOrAddress=${lnUrlOrAddress}`;
 
   return (
     <>

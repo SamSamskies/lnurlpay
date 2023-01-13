@@ -19,7 +19,7 @@ import copy from "copy-to-clipboard";
 import Header from "components/Header";
 import toast from "react-simple-toasts";
 import Head from "next/head";
-import { BASE_URL } from "../constants";
+import { useGetBaseUrl } from "hooks";
 
 interface InvoicePageProps {
   invoice?: string;
@@ -35,6 +35,7 @@ const AmountPage: NextPage<InvoicePageProps> = ({
   error,
 }) => {
   const router = useRouter();
+  const baseUrl = useGetBaseUrl();
 
   if (error) {
     return (
@@ -51,7 +52,7 @@ const AmountPage: NextPage<InvoicePageProps> = ({
     );
   }
 
-  const ogContent = `${BASE_URL}/api/og?lnUrlOrAddress=${lnUrlOrAddress}&amount=${amount}`;
+  const ogContent = `${baseUrl}/api/og?lnUrlOrAddress=${lnUrlOrAddress}&amount=${amount}`;
 
   return invoice ? (
     <>
