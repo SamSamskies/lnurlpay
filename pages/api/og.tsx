@@ -34,7 +34,9 @@ export default function handler(req: NextRequest) {
           {lnUrlOrAddress && (
             <div
               style={{
-                fontSize: 48,
+                fontSize: lnUrlOrAddress.length >= 30 ? 36 : 48,
+                maxWidth: 1120,
+                wordBreak: "break-all",
               }}
             >
               {lnUrlOrAddress}
@@ -43,7 +45,7 @@ export default function handler(req: NextRequest) {
           {amount && (
             <div
               style={{
-                fontSize: 36,
+                fontSize: 24,
                 marginTop: 24,
               }}
             >
