@@ -61,6 +61,10 @@ const Home: NextPage = () => {
       <Head>
         <meta property="og:image" content={ogContent} />
         <meta name="twitter:image" content={ogContent} />
+        <meta
+          name="twitter:image:alt"
+          content="There is no 2nd best Saylor meme"
+        />
       </Head>
       <Header />
       <Heading mt={2} size="md" color="gray.300">

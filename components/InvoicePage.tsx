@@ -59,6 +59,10 @@ const AmountPage: NextPage<InvoicePageProps> = ({
       <Head>
         <meta property="og:image" content={ogContent} />
         <meta name="twitter:image" content={ogContent} />
+        <meta
+          name="twitter:image:alt"
+          content="LNURL or Lightning Address and tip amount"
+        />
       </Head>
       <Flex flexDirection="column" alignItems="center">
         <Header />

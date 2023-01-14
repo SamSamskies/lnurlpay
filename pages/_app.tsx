@@ -20,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@PlebPay" />
         <meta name="twitter:title" content="LNURL Pay ⚡" />
         <meta
           name="twitter:description"
