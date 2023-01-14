@@ -18,7 +18,7 @@ import QrCodeButton from "components/QrCodeButton";
 import { QrReader } from "react-qr-reader";
 import { Result } from "@zxing/library";
 import Head from "next/head";
-import { useGetBaseUrl } from "hooks";
+// import { useGetBaseUrl } from "hooks";
 
 const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -53,13 +53,20 @@ const Home: NextPage = () => {
     router.push(`/${lnUrlOrAddress}`);
   }, [lnUrlOrAddress, isLnurl, isLightningAddress, router]);
 
-  const baseUrl = useGetBaseUrl();
-  const ogContent = `${baseUrl}/thereisno2ndbest.jpg`;
+  // const baseUrl = useGetBaseUrl();
+  // const ogContent = `${baseUrl}/thereisno2ndbest.jpg`;
 
   return (
     <>
       <Head>
-        <meta property="og:image" content={ogContent} />
+        <meta
+          property="og:image"
+          content="https://pbs.twimg.com/card_img/1612709635504459776/IdQQ8UYC?format=jpg&name=small"
+        />
+        <meta
+          name="twitter:image"
+          content="https://pbs.twimg.com/card_img/1612709635504459776/IdQQ8UYC?format=jpg&name=small"
+        />
         <meta
           name="twitter:image:alt"
           content="There is no 2nd best Saylor meme"
