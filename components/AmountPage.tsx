@@ -80,7 +80,13 @@ const AmountPage: NextPage<AmountPageProps> = ({
     <>
       <Head>
         <meta property="og:image" content={ogContent} />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content={ogContent} />
+        <meta name="twitter:title" content="LNURL Pay ⚡" />
+        <meta
+          name="twitter:description"
+          content="Convert an LNURL or Lightning Address to a BOLT11 invoice."
+        />
       </Head>
       <Flex flexDirection="column" alignItems="center">
         <Box mb={6}>

@@ -19,12 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="LNURL Pay ⚡ - Convert an LNURL or Lightning Address to a BOLT11 invoice."
         />
         <meta property="og:type" content="website" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="LNURL Pay ⚡" />
-        <meta
-          name="twitter:description"
-          content="Convert an LNURL or Lightning Address to a BOLT11 invoice."
-        />
       </Head>
       <ChakraProvider theme={theme}>
         <CSSReset />
