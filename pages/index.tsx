@@ -60,7 +60,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <meta property="og:image" content={ogContent} />
-        <meta name="twitter:image" content={ogContent} />
+        <meta
+          name="twitter:image"
+          content="https://pbs.twimg.com/card_img/1612709635504459776/IdQQ8UYC?format=jpg&name=small"
+        />
         <meta
           name="twitter:image:alt"
           content="There is no 2nd best Saylor meme"
