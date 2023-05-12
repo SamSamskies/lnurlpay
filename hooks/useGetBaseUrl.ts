@@ -1,6 +1,6 @@
 export const useGetBaseUrl = () => {
   if (typeof window === "undefined") {
-    return "";
+    return "https://lnurlpay.com";
   }
 
   return window.location.origin;
