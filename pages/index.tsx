@@ -62,7 +62,7 @@ const Home: NextPage = () => {
         <meta property="og:image" content={ogContent} />
         <meta
           name="twitter:image"
-          content="https://www.plebpay.com/distracted-boyfriend-meme.jpeg"
+          content={`${ogContent}?justtryingtomakethisfriggenimagedisplay=1`}
         />
       </Head>
       <Header />
