@@ -60,7 +60,10 @@ const Home: NextPage = () => {
     <>
       <Head>
         <meta property="og:image" content={ogContent} />
-        <meta name="twitter:image" content={ogContent} />
+        <meta
+          name="twitter:image"
+          content="https://www.plebpay.com/distracted-boyfriend-meme.jpeg"
+        />
       </Head>
       <Header />
       <Heading mt={2} size="md" color="gray.300">
