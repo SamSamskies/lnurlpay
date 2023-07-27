@@ -74,7 +74,7 @@ const AmountPage: NextPage<AmountPageProps> = ({
   };
   const normalizeAmount = (amount?: number) =>
     amount === 1 ? `${amount} sat` : `${amount} sats`;
-  const ogContent = `${baseUrl}/api/og?lnUrlOrAddress=${lnUrlOrAddress}&v=2`;
+  const ogContent = `${baseUrl}/api/og?lnUrlOrAddress=${lnUrlOrAddress}&v=3`;
 
   return (
     <>

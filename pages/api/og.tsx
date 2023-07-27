@@ -39,6 +39,17 @@ export default function handler(req: NextRequest) {
                 includeMargin
                 size={424}
               />
+              <img
+                src="https://cdn.nostr.build/p/OoP5.jpg"
+                style={{
+                  position: "absolute",
+                  width: 80,
+                  height: 80,
+                  left: 172,
+                  top: 172,
+                  border: "4px solid white",
+                }}
+              />
             </div>
           )}
           {lnUrlOrAddress && (
