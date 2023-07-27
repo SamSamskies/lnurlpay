@@ -138,7 +138,7 @@ const InvoicePage: NextPage<InvoicePageProps> = ({
               )}
             </Select>
             <Link href={`${walletUri}${invoice}`} isExternal variant="button">
-              <Button>Pay ⚡</Button>
+              <Button>Open ⚡</Button>
             </Link>
           </HStack>
         </VStack>
