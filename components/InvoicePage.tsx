@@ -84,9 +84,7 @@ const InvoicePage: NextPage<InvoicePageProps> = ({
   useEffect(() => {
     const cachedWalletKey = localStorage.getItem(DEFAULT_WALLET_CACHE_KEY);
 
-    if (cachedWalletKey) {
-      setDefaultWallet(cachedWalletKey);
-    }
+    setDefaultWallet(cachedWalletKey ?? "default");
   }, []);
 
   if (error) {
@@ -125,23 +123,25 @@ const InvoicePage: NextPage<InvoicePageProps> = ({
           <QRCodeSVG value={invoice} includeMargin size={256} />
         </Box>
         <Text fontSize="sm">Click QR code to copy invoice</Text>
-        <VStack justifyContent="flex-start" my={6} spacing={2}>
-          <Text>Alternatively, open in wallet:</Text>
-          <HStack spacing={2}>
-            <Select onChange={handleWalletChange} value={defaultWallet}>
-              {Object.entries(DEFAULT_LIGHTNING_WALLETS).map(
-                ([key, { displayName }]) => (
-                  <option key={key} value={key}>
-                    {displayName}
-                  </option>
-                )
-              )}
-            </Select>
-            <Link href={`${walletUri}${invoice}`} isExternal variant="button">
-              <Button>Open ⚡</Button>
-            </Link>
-          </HStack>
-        </VStack>
+        {defaultWallet && (
+          <VStack justifyContent="flex-start" my={6} spacing={2}>
+            <Text>Alternatively, open in wallet:</Text>
+            <HStack spacing={2}>
+              <Select onChange={handleWalletChange} value={defaultWallet}>
+                {Object.entries(DEFAULT_LIGHTNING_WALLETS).map(
+                  ([key, { displayName }]) => (
+                    <option key={key} value={key}>
+                      {displayName}
+                    </option>
+                  )
+                )}
+              </Select>
+              <Link href={`${walletUri}${invoice}`} isExternal variant="button">
+                <Button>Open ⚡</Button>
+              </Link>
+            </HStack>
+          </VStack>
+        )}
       </Flex>
     </>
   ) : null;
