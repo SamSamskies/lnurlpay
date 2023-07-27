@@ -1,6 +1,7 @@
 import { ImageResponse } from "@vercel/og";
 // eslint-disable-next-line @next/next/no-server-import-in-page
 import { NextRequest } from "next/server";
+import { QRCodeSVG } from "qrcode.react";
 
 export const config = {
   runtime: "edge",
@@ -31,6 +32,15 @@ export default function handler(req: NextRequest) {
             fontFamily: "system-ui, Helvetica, Arial, sans-serif",
           }}
         >
+          {lnUrlOrAddress && !amount && (
+            <div style={{ display: "flex", marginBottom: 24 }}>
+              <QRCodeSVG
+                value={`lightning:${lnUrlOrAddress}`}
+                includeMargin
+                size={424}
+              />
+            </div>
+          )}
           {lnUrlOrAddress && (
             <div
               style={{
