@@ -50,7 +50,6 @@ const DEFAULT_LIGHTNING_WALLETS: Record<
   },
   zebedee: { displayName: "Zebedee", uriPrefix: "zebedee:lightning:" },
   zeusln: { displayName: "Zeus LN", uriPrefix: "zeusln:lightning:" },
-  lnlink: { displayName: "LNLink", uriPrefix: "lnlink:lightning:" },
   phoenix: { displayName: "Phoenix", uriPrefix: "phoenix://" },
   breez: { displayName: "Breez", uriPrefix: "breez:" },
   bitcoinbeach: { displayName: "Bitcoin Beach", uriPrefix: "bitcoinbeach://" },
