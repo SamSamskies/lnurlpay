@@ -26,7 +26,7 @@ const Home: NextPage = () => {
   const [willShowQrCodeScanner, setWillShowQrCodeScanner] = useState(false);
   const [lnUrlOrAddress, setLnUrlOrAddress] = useState<string | undefined>();
   const router = useRouter();
-  const { isLnurl, isLightningAddress } = utils;
+  const { isLnurl, isLightningAddress, parseLnUrl } = utils;
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLnUrlOrAddress(e.currentTarget.lnUrlOrAddress.value.trim());
@@ -50,7 +50,9 @@ const Home: NextPage = () => {
     }
 
     setIsLoading(true);
-    router.push(`/${lnUrlOrAddress}`);
+
+    const lnurl = isLnurl(lnUrlOrAddress) ? parseLnUrl(lnUrlOrAddress) : lnUrlOrAddress;
+    router.push(`/${lnurl}`);
   }, [lnUrlOrAddress, isLnurl, isLightningAddress, router]);
 
   const baseUrl = useGetBaseUrl();
