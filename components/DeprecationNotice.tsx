@@ -8,9 +8,9 @@ export default function DeprecationNotice() {
       <AlertDescription>
         <Text fontWeight="semibold">This tool is being retired.</Text>
         <Text mt={1} fontSize="sm">
-          LNURL Pay will shut down on {RETIREMENT_DATE_LABEL}. Invoice
-          generation still works until then. After that date, this site will no
-          longer create invoices.
+          Invoice generation will stop on {RETIREMENT_DATE_LABEL}. It still
+          works until then. After that date, this site will remain online with a
+          retirement notice only — it will no longer create invoices.
         </Text>
       </AlertDescription>
     </Alert>

@@ -1,5 +1,7 @@
 # LNURL Pay ⚡️
 
+> **Deprecated / unmaintained.** This project is no longer maintained. Invoice generation on [lnurlpay.com](https://lnurlpay.com) will stop on **September 1, 2026** (still works until then). After that, the site will stay up with a retirement notice only.
+
 Web app that generates BOLT11 invoices from an LNURL or Lightning Address.
 
 ## Getting Started
