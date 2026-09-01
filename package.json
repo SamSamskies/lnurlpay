@@ -17,21 +17,9 @@
   "author": "Sam Samskies <samsamskies@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@chakra-ui/icons": "^1.1.7",
-    "@chakra-ui/react": "^1.8.8",
-    "@emotion/react": "^11.9.0",
-    "@emotion/styled": "^11.8.1",
-    "@vercel/og": "^0.0.27",
-    "axios": "1.2.2",
-    "copy-to-clipboard": "^3.3.1",
-    "framer-motion": "^6.3.1",
-    "lnurl-pay": "2.1.0",
     "next": "13.1.1",
-    "qrcode.react": "^3.0.1",
     "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "react-qr-reader": "^3.0.0-beta-1",
-    "react-simple-toasts": "^2.2.3"
+    "react-dom": "18.0.0"
   },
   "devDependencies": {
     "@types/node": "17.0.25",
@@ -42,8 +30,5 @@
     "eslint-config-prettier": "^8.5.0",
     "prettier": "2.6.2",
     "typescript": "4.6.3"
-  },
-  "resolutions": {
-    "axios": "1.2.2"
   }
 }
