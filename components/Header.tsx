@@ -1,17 +1,11 @@
-import { Heading } from "@chakra-ui/react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function Header() {
-  const router = useRouter();
-
   return (
-    <Heading
-      as="h1"
-      size="2xl"
-      onClick={() => router.push("/")}
-      sx={{ cursor: "pointer" }}
-    >
-      LNURL Pay ⚡️
-    </Heading>
+    <h1>
+      <Link href="/" className="title-link">
+        LNURL Pay ⚡️
+      </Link>
+    </h1>
   );
 }

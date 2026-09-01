@@ -1,7 +1,6 @@
-import { ChakraProvider, CSSReset, Center, Box } from "@chakra-ui/react";
-import theme from "styles/theme";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import "styles/globals.css";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -23,14 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="This tool has been retired. For LNURL specifications, see https://github.com/lnurl/luds"
         />
       </Head>
-      <ChakraProvider theme={theme}>
-        <CSSReset />
-        <Center px={4} py={20}>
-          <Box w={600} maxW={600}>
-            <Component {...pageProps} />
-          </Box>
-        </Center>
-      </ChakraProvider>
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
